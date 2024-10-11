@@ -120,22 +120,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                 } catch (error) {
 					console.error("La respuesta no fue existosa")
                 }
-            }, /*
-			getFilmDetail: (uid) => {
-				const store = getStore()
-				fetch (`https://www.swapi.tech/api/films/${uid}`)
-				.then((response) => response.json)
-				.then((data) => {setStore({
-						filmsDetail: {
-							...store[filmsDetail],
-							[uid]: data.result,
-						},
-					})
-				console.log(data)
-				})
-				.catch(err => console.error(err))
-			}, */
-
+            }, 
+			
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

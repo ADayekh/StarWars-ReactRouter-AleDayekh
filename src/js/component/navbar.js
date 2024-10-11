@@ -6,14 +6,14 @@ import '/workspaces/StarWars-ReactRouter-AleDayekh/src/styles/navbar.css';
 
 export const NavbarStar = () => {
 	return (
-		<Navbar bg="dark" data-bs-theme="dark">
+		<Navbar classname="Navbar" bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#home"><Image className="StarLogo" src={StarLogo}/></Navbar.Brand>
+            <Link to={"/"}><Navbar.Brand><Image className="StarLogo" src={StarLogo}/></Navbar.Brand></Link>
           <Nav className="mx-auto">
-            <Link to={"/films"}><Nav.Link className="text-light px-5" href="#films"><h5>FILMS</h5></Nav.Link></Link>
-            <Link to={"/chracters"}><Nav.Link className="text-light px-5"  href="#features"><h5>CHARACTERS</h5></Nav.Link></Link>
-            <Link to={"/planets"}><Nav.Link className="text-light px-5"  href="#pricing"><h5>PLANETS</h5></Nav.Link></Link>
-            <Link to={"/vehicles"}><Nav.Link className="text-light px-5" href="#vehicles"><h5>VEHICLES</h5></Nav.Link></Link>
+            <Link className="Link-nav" to={"/films"}><Nav.Link className="text-light px-5" href="#films"><h4>FILMS</h4></Nav.Link></Link>
+            <Link className="Link-nav" to={"/chracters"}><Nav.Link className="text-light px-5"  href="#features"><h4>CHARACTERS</h4></Nav.Link></Link>
+            <Link  className="Link-nav" to={"/planets"}><Nav.Link className="text-light px-5"  href="#pricing"><h4>PLANETS</h4></Nav.Link></Link>
+            <Link className="Link-nav" to={"/vehicles"}><Nav.Link className="text-light px-5" href="#vehicles"><h4>VEHICLES</h4></Nav.Link></Link>
           </Nav>
         </Container>
       </Navbar>
