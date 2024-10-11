@@ -30,8 +30,8 @@ function CardFilmDetail() {
                     <Card.Header>Cinematic data</Card.Header>
                     <ListGroup variant="flush">
                       <ListGroup.Item>Fue dirigida por: {store.filmsDetail.director}</ListGroup.Item>
-                      <ListGroup.Item>Fue producida por: {store.filmsDetail.productor}</ListGroup.Item>
-                      <ListGroup.Item>Su fecha de estreno fue: {store.filmsDetail.release_date}</ListGroup.Item>
+                      <ListGroup.Item>Fue producida por: {store.filmsDetail.producer}</ListGroup.Item>
+                      <ListGroup.Item>Su fecha de estreno fue el día: {store.filmsDetail.release_date}</ListGroup.Item>
                     </ListGroup>
                 </Card>
               </Col>
@@ -39,9 +39,9 @@ function CardFilmDetail() {
                 <Card  style={{ width: '18rem' }}>
                     <Card.Header>Elemental data</Card.Header>
                     <ListGroup variant="flush">
-                      <ListGroup.Item></ListGroup.Item>
-                      <ListGroup.Item></ListGroup.Item>
-                      <ListGroup.Item></ListGroup.Item>
+                      <ListGroup.Item>f{store.filmsDetail.producer}</ListGroup.Item>
+                      <ListGroup.Item>{store.filmsDetail.producer}</ListGroup.Item>
+                      <ListGroup.Item>{store.filmsDetail.producer}</ListGroup.Item>
                     </ListGroup>
                 </Card>
               </Col>
