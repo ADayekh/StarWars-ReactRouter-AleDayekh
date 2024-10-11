@@ -1,0 +1,40 @@
+.text-light.px-5{
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .text-light.px-5::before,
+  .text-light.px-5::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: all 0.5s;
+  }
+  
+  .text-light.px-5::before {
+    top: 0;
+    left: 0;
+  }
+  
+  .text-light.px-5::after {
+    bottom: 0;
+    right: 0;
+  }
+  
+  .text-light.px-5:hover::before {
+    width: 100%;
+    transition: width 0.25s ease-in-out;
+  }
+  
+  .text-light.px-5:hover::after {
+    width: 100%;
+    transition: width 0.25s ease-in-out 0.25s;
+  }
+  

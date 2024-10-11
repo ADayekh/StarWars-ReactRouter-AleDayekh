@@ -1,3 +1,5 @@
+import { Await } from "react-router";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -12,7 +14,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			films: [],
+			filmsDetail: {},
+			chracters:[],
+			chractersDetail:{},
+			planets:[],
+			planetsDetail:{},
+			vehicles:[],
+			vehiclesDetail:{},
+
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -24,6 +35,107 @@ const getState = ({ getStore, getActions, setStore }) => {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
+
+	
+			
+			getFilms: async () => {
+				try {
+					const response = await fetch (`https://www.swapi.tech/api/films/`)
+					if (!response.ok) {
+						throw new Error("La respuesta no fue existosa");
+					}
+					const data = await response.json()
+					setStore({films: data.result})
+					console.log(data)
+				} catch (error) {
+					console.error("La respuesta no fue existosa")
+				}
+			}, 
+	
+			getPlanets: async () => {
+				try {
+					const response = await fetch (`https://www.swapi.tech/api/planets/`)
+					if (!response.ok) {
+						throw new Error("La respuesta no fue existosa");
+					}
+					const data = await response.json()
+					setStore({planets: data.results})
+					console.log(data)
+				} catch (error) {
+					console.error("La respuesta no fue existosa")
+				}
+			},
+
+			getVehicles: async () => {
+				try {
+					const response = await fetch (`https://www.swapi.tech/api/vehicles/`)
+					if (!response.ok) {
+						throw new Error("La respuesta no fue existosa");
+					}
+					const data = await response.json()
+					setStore({vehicles: data.results})
+					console.log(data)
+				} catch (error) {
+					console.error("La respuesta no fue existosa")
+				}
+			},
+
+			
+			getChracters: async () => {
+				try {
+					const response = await fetch (`https://www.swapi.tech/api/people/`)
+					if (!response.ok) {
+						throw new Error("La respuesta no fue existosa");
+					}
+					const data = await response.json()
+					setStore({chracters: data.results})
+					console.log(data)
+				} catch (error) {
+					console.error("La respuesta no fue existosa")
+				}
+			},
+
+			getCharacterDetail: async (uid) => {
+                try {
+                    const response = await fetch(`https://www.swapi.tech/api/people/${uid}`);
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch Character");
+                    }
+                    const data = await response.json();
+                    setStore({ chractersDetail: data.result.properties});
+                } catch (error) {
+					console.error("La respuesta no fue existosa")
+                }
+            },
+ 
+			getFilmDetail: async (uid) => {
+				const store = getStore()
+                try {
+                    const response = await fetch(`https://www.swapi.tech/api/films/${uid}`);
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch Character");
+                    }
+                 const data = await response.json();
+				 setStore({ filmsDetail: data.result.properties});
+                } catch (error) {
+					console.error("La respuesta no fue existosa")
+                }
+            }, /*
+			getFilmDetail: (uid) => {
+				const store = getStore()
+				fetch (`https://www.swapi.tech/api/films/${uid}`)
+				.then((response) => response.json)
+				.then((data) => {setStore({
+						filmsDetail: {
+							...store[filmsDetail],
+							[uid]: data.result,
+						},
+					})
+				console.log(data)
+				})
+				.catch(err => console.error(err))
+			}, */
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

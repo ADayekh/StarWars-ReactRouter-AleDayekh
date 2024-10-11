@@ -1,3 +1,8 @@
 /* 
     General Styles
 */
+body {
+    background-image: url(https://i.pinimg.com/originals/ec/70/52/ec70523361fd7eb95afe45bd112eb27e.jpg);
+background-size: cover;   
+ background-position: center;
+}

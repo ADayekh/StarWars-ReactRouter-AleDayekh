@@ -1,15 +1,19 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
+import { NavbarStar } from "./component/navbar";
 import { Footer } from "./component/footer";
-
+import { CardFilm } from "./views/Films";
+import { CardPlanet } from "./views/Planets";
+import { CardChracter } from "./views/Chracters";
+import {CardChracterDetail} from "./views/ChractersDetail";
+import { CardVehicle } from "./views/Vehicles";
+import { CardFilmDetail } from "./views/FilmsDetail";
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -20,9 +24,15 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
+					<NavbarStar />
 					<Routes>
 						<Route path="/" element={<Home />} />
+						<Route path="/films" element={<CardFilm />} />
+						<Route path="/films/:theid" element={<CardFilmDetail />} />
+						<Route path="/chracters" element={<CardChracter />} />
+						<Route path="/chracters/:theid" element={<CardChracterDetail />} />
+						<Route path="/planets" element={<CardPlanet />} />
+						<Route path="/vehicles" element={<CardVehicle />} />
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
