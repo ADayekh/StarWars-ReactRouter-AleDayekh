@@ -38,3 +38,11 @@
     transition: width 0.25s ease-in-out 0.25s;
   }
   
+  h4{
+    font-family: fantasy;
+    color:yellow
+  }
+
+  .Link-nav {
+    text-decoration: none;
+  }
