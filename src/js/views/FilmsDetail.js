@@ -23,12 +23,29 @@ function CardFilmDetail() {
           <Card.Text>
             You can read more about the film in the tables. May the force be with you.
           </Card.Text>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroup.Item>Cras justo odio</ListGroup.Item>
-          <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-          <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-        </ListGroup>
+        </Card.Body> 
+          <Row>
+            <Col ClassName="col-6">
+                <Card  style={{ width: '18rem' }}>
+                    <Card.Header>Cinematic data</Card.Header>
+                    <ListGroup variant="flush">
+                      <ListGroup.Item>Fue dirigida por: {store.filmsDetail.director}</ListGroup.Item>
+                      <ListGroup.Item>Fue producida por: {store.filmsDetail.productor}</ListGroup.Item>
+                      <ListGroup.Item>Su fecha de estreno fue: {store.filmsDetail.release_date}</ListGroup.Item>
+                    </ListGroup>
+                </Card>
+              </Col>
+              <Col ClassName="col-6">
+                <Card  style={{ width: '18rem' }}>
+                    <Card.Header>Elemental data</Card.Header>
+                    <ListGroup variant="flush">
+                      <ListGroup.Item></ListGroup.Item>
+                      <ListGroup.Item></ListGroup.Item>
+                      <ListGroup.Item></ListGroup.Item>
+                    </ListGroup>
+                </Card>
+              </Col>
+          </Row>
         <Card.Body>
         <Link to={`/chracters`}><Button>Return to Character List</Button></Link>
         </Card.Body>
