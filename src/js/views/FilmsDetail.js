@@ -1,38 +1,53 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Card, ListGroup} from "react-bootstrap";
+import { Card, ListGroup, Row, Col, Button} from "react-bootstrap";
 import { useParams } from "react-router";
 import { Context } from "../store/appContext";
-
+import { Link } from "react-router-dom";
 function CardFilmDetail() {
 
-  const uid = useParams();
+  const {theid} = useParams();
   const {store , actions} = useContext(Context);
 
   useEffect (() => {
-    actions.getFilmDetail(uid)
+    actions.getFilmDetail(theid)
 },[])
 
 
 
   return (
   <div className="container-fluid d-flex justify-content-center mt-5">
-    <Card style={{ width: '35rem' }}>
-      <Card.Img variant="top" src={`https://starwars-visualguide.com/assets/img/films/${uid}.jpg`}/>
-        <Card.Body>
-          <Card.Title> {store.filmsDetail.title}</Card.Title>
+    <Card style={{ width: '38rem' }}>
+      <Card.Img variant="top" src={`https://starwars-visualguide.com/assets/img/films/${theid}.jpg`}/>
+      <Card.Body>
+          <Card.Title>{store.filmsDetail.title}</Card.Title>
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            You can read more about the film in the tables. May the force be with you.
           </Card.Text>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroup.Item>Cras justo odio</ListGroup.Item>
-          <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-          <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-        </ListGroup>
+        </Card.Body> 
+          <Row>
+            <Col ClassName="col-6">
+                <Card  style={{ width: '18rem' }}>
+                    <Card.Header>Cinematic data</Card.Header>
+                    <ListGroup variant="flush">
+                      <ListGroup.Item>Fue dirigida por: {store.filmsDetail.director}</ListGroup.Item>
+                      <ListGroup.Item>Fue producida por: {store.filmsDetail.productor}</ListGroup.Item>
+                      <ListGroup.Item>Su fecha de estreno fue: {store.filmsDetail.release_date}</ListGroup.Item>
+                    </ListGroup>
+                </Card>
+              </Col>
+              <Col ClassName="col-6">
+                <Card  style={{ width: '18rem' }}>
+                    <Card.Header>Elemental data</Card.Header>
+                    <ListGroup variant="flush">
+                      <ListGroup.Item></ListGroup.Item>
+                      <ListGroup.Item></ListGroup.Item>
+                      <ListGroup.Item></ListGroup.Item>
+                    </ListGroup>
+                </Card>
+              </Col>
+          </Row>
         <Card.Body>
-          <Card.Link href="#">Card Link</Card.Link>
-          <Card.Link href="#">Another Link</Card.Link>
+        <Link to={`/chracters`}><Button>Return to Character List</Button></Link>
         </Card.Body>
     </Card>
   </div>
