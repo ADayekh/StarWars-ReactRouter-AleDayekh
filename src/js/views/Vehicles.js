@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Card, Button } from "react-bootstrap";
 import { Context } from "../store/appContext";
-
+import { Link } from "react-router-dom";
 const CardVehicle = () => {
     const {store , actions} = useContext(Context);
 
@@ -20,7 +20,7 @@ const CardVehicle = () => {
                                 <Card.Body>
                                 <Card.Title>{singleVehicle.name}</Card.Title>
                                 <Card.Text></Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                                <Link to={`/vehicles/${singleVehicle.uid}`}><Button variant="warning">Learn More</Button></Link>
                                 </Card.Body>
                         </Card>
                     </div>   

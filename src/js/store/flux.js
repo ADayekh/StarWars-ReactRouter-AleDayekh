@@ -60,7 +60,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 					const data = await response.json()
 					setStore({planets: data.results})
-					console.log(data)
 				} catch (error) {
 					console.error("La respuesta no fue existosa")
 				}
@@ -109,7 +108,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
  
 			getFilmDetail: async (uid) => {
-				const store = getStore()
                 try {
                     const response = await fetch(`https://www.swapi.tech/api/films/${uid}`);
                     if (!response.ok) {
@@ -121,6 +119,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error("La respuesta no fue existosa")
                 }
             }, 
+
+			getPlanetDetail: async (uid) => {
+                try {
+                    const response = await fetch(`https://www.swapi.tech/api/planets/${uid}`);
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch Character");
+                    }
+                 const data = await response.json();
+				 setStore({ planetsDetail: data.result.properties});
+                } catch (error) {
+					console.error("La respuesta no fue existosa")
+                }
+            }, 
+
+			getVehicleDetail: async (uid) => {
+                try {
+                    const response = await fetch(`https://www.swapi.tech/api/vehicles/${uid}`);
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch Character");
+                    }
+                 const data = await response.json();
+				 setStore({ vehiclesDetail: data.result.properties});
+                } catch (error) {
+					console.error("La respuesta no fue existosa")
+                }
+            }, 
+			
 			
 			changeColor: (index, color) => {
 				//get the store

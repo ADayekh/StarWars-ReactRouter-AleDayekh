@@ -29,7 +29,7 @@ const CardFilm = () => {
                                                                 {film.properties.opening_crawl}
                                                             </div>
                                                             <div className="row mt-3">
-                                                            <Link to={`/films/${film.uid}`}><Button>Learn More</Button></Link>
+                                                            <Link to={`/films/${film.uid}`}><Button variant="warning">Learn More</Button></Link>
                                                             </div>
                                                         </Accordion.Body>
                                                     </Accordion.Item>

@@ -27,7 +27,7 @@ function CardChracterDetail() {
           <Row>
             <Col ClassName="col-6">
                 <Card  style={{ width: '18rem' }}>
-                    <Card.Header>Physical data</Card.Header>
+                    <Card.Header><h6>Physical data</h6></Card.Header>
                     <ListGroup variant="flush">
                       <ListGroup.Item>The mass is: {store.chractersDetail.mass} kg</ListGroup.Item>
                       <ListGroup.Item>The height is: {store.chractersDetail.height} cm</ListGroup.Item>
@@ -39,18 +39,16 @@ function CardChracterDetail() {
               </Col>
               <Col ClassName="col-6">
                 <Card  style={{ width: '18rem' }}>
-                    <Card.Header>Elemental data</Card.Header>
+                    <Card.Header><h6>Elemental data</h6></Card.Header>
                     <ListGroup variant="flush">
                       <ListGroup.Item>The gender is: {store.chractersDetail.gender}</ListGroup.Item>
                       <ListGroup.Item>The birth year is: {store.chractersDetail.birth_year}</ListGroup.Item>
-                      <ListGroup.Item>The creation of the character is: {store.chractersDetail.created}</ListGroup.Item>
-                      <ListGroup.Item>The last edition was in: {store.chractersDetail.edited}</ListGroup.Item>
                     </ListGroup>
                 </Card>
               </Col>
           </Row>
         <Card.Body>
-        <Link to={`/chracters`}><Button>Return to Character List</Button></Link>
+        <Link to={`/chracters`}><Button variant="warning">Return to Character List</Button></Link>
         </Card.Body>
     </Card>
   </div>

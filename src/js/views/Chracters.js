@@ -23,7 +23,7 @@ const CardChracter = () => {
                                 <Card.Body>
                                 <Card.Title>{singleChracter.name}</Card.Title>
                                 <Card.Text>  
-                                    <Link to={`/chracters/${singleChracter.uid}`}><Button>Learn More</Button></Link>
+                                    <Link to={`/chracters/${singleChracter.uid}`}><Button variant="warning">Learn More</Button></Link>
                                 </Card.Text>
                                 </Card.Body>
                         </Card>

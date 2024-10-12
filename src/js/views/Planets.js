@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Card, Button } from "react-bootstrap";
 import { Context } from "../store/appContext";
-
+import { Link } from "react-router-dom";
 const CardPlanet = () => {
     const {store , actions} = useContext(Context);
 
@@ -20,7 +20,7 @@ const CardPlanet = () => {
                                 <Card.Body>
                                 <Card.Title>{singlePlanet.name}</Card.Title>
                                 <Card.Text></Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                                <Link to={`/planets/${singlePlanet.uid}`}><Button variant="warning">Learn More</Button></Link>
                                 </Card.Body>
                         </Card>
                     </div>   

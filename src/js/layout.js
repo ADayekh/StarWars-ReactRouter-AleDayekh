@@ -14,6 +14,8 @@ import { CardChracter } from "./views/Chracters";
 import {CardChracterDetail} from "./views/ChractersDetail";
 import { CardVehicle } from "./views/Vehicles";
 import { CardFilmDetail } from "./views/FilmsDetail";
+import { CardPlanetDetail } from "./views/PlanetsDetail";
+import { CardVehicleDetail } from "./views/VehiclesDetail";
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -32,7 +34,9 @@ const Layout = () => {
 						<Route path="/chracters" element={<CardChracter />} />
 						<Route path="/chracters/:theid" element={<CardChracterDetail />} />
 						<Route path="/planets" element={<CardPlanet />} />
+						<Route path="/planets/:theid" element={<CardPlanetDetail />} />
 						<Route path="/vehicles" element={<CardVehicle />} />
+						<Route path="/vehicles/:theid" element={<CardVehicleDetail />} />
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
