@@ -23,7 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planetsDetail:{},
 			vehicles:[],
 			vehiclesDetail:{},
-
+			favouriteItems: [],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -38,6 +38,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 	
 			
+			addFavouriteItem: (item) => {
+				const store = getStore();
+				setStore({ favouriteItems: [...store.favouriteItems, item] })
+				console.log(store.favouriteItems)
+			},
+
+
 			getFilms: async () => {
 				try {
 					const response = await fetch (`https://www.swapi.tech/api/films/`)
@@ -146,7 +153,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
             }, 
 			
-			
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -160,7 +166,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+
 		}
 	};
 };
