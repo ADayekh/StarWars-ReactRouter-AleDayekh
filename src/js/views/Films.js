@@ -2,6 +2,7 @@ import React, { useEffect,useState, useContext } from "react";
 import {Accordion, Card, Button, Row, Col } from "react-bootstrap";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+
 const CardFilm = () => {
     const {store , actions} = useContext(Context);
 

@@ -1,5 +1,4 @@
 import { Await } from "react-router";
-
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -24,6 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			vehicles:[],
 			vehiclesDetail:{},
 			favouriteItems: [],
+			repeat: null
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -40,8 +40,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 			addFavouriteItem: (item) => {
 				const store = getStore();
+
+				if (item !== store.repeat){
 				setStore({ favouriteItems: [...store.favouriteItems, item] })
 				console.log(store.favouriteItems)
+				store.repeat = item;
+				}
+				else 
+					console.log("Don´t repeat favourite")
 			},
 
 			deleteFavouriteItem: (indexid) => {
