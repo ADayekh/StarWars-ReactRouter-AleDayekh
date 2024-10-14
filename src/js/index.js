@@ -7,7 +7,7 @@ import "../styles/index.css";
 
 //import your own components
 import Layout from './layout.js'
-
+import { FavouriteDropdown } from './component/FavouriteDropdown.js';
 //
 const root = createRoot(document.querySelector("#app"))
 

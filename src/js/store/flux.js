@@ -44,6 +44,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(store.favouriteItems)
 			},
 
+			deleteFavouriteItem: (indexid) => {
+				const store = getStore();
+				store.favouriteItems = store.favouriteItems.filter((_, index) => index !== indexid);
+				setStore ({ favouriteItems: [...store.favouriteItems]})
+			},
 
 			getFilms: async () => {
 				try {
