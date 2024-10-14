@@ -23,7 +23,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			vehicles:[],
 			vehiclesDetail:{},
 			favouriteItems: [],
-			repeat: null
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -40,11 +39,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 			addFavouriteItem: (item) => {
 				const store = getStore();
-
-				if (item !== store.repeat){
+				const arrayFavoritos = store.favouriteItems
+				if (!arrayFavoritos.includes(item)){
 				setStore({ favouriteItems: [...store.favouriteItems, item] })
 				console.log(store.favouriteItems)
-				store.repeat = item;
 				}
 				else 
 					console.log("Don´t repeat favourite")
@@ -56,6 +54,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore ({ favouriteItems: [...store.favouriteItems]})
 			},
 
+			/* Versión sin LocalStorage
 			getFilms: async () => {
 				try {
 					const response = await fetch (`https://www.swapi.tech/api/films/`)
@@ -69,8 +68,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error("La respuesta no fue existosa")
 				}
 			}, 
-	
-			getPlanets: async () => {
+	*/
+
+			getFilms: async () => {
+				let localData = localStorage.getItem("films");
+				if (localData){
+					setStore({films: JSON.parse(localData)})
+					return
+				}
+				try {
+					const response = await fetch (`https://www.swapi.tech/api/films/`)
+					if (!response.ok) {
+						throw new Error("La respuesta no fue existosa");
+					}
+					const data = await response.json()
+					localStorage.setItem("films", JSON.stringify(data.result))
+					setStore({films: data.result})
+					console.log(data)
+				} catch (error) {
+					console.error("La respuesta no fue existosa")
+				}
+			}, 
+
+		/*	Versión sin LocalStorage
+			getPlanets: async () => { Versión sin LocalStorage
 				try {
 					const response = await fetch (`https://www.swapi.tech/api/planets/`)
 					if (!response.ok) {
@@ -81,8 +102,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.error("La respuesta no fue existosa")
 				}
-			},
+			}, */
 
+			getPlanets: async () => {
+				let localData = localStorage.getItem("planets");
+				if (localData){
+					setStore({planets: JSON.parse(localData)})
+					return
+				}
+				try {
+					const response = await fetch (`https://www.swapi.tech/api/planets/`)
+					if (!response.ok) {
+						throw new Error("La respuesta no fue existosa");
+					}
+					const data = await response.json()
+					localStorage.setItem("planets", JSON.stringify(data.results))
+					setStore({planets: data.results})
+					console.log(data)
+				} catch (error) {
+					console.error("La respuesta no fue existosa")
+				}
+			}, 
+
+
+		/* Versión sin LocalStorage
 			getVehicles: async () => {
 				try {
 					const response = await fetch (`https://www.swapi.tech/api/vehicles/`)
@@ -96,8 +139,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error("La respuesta no fue existosa")
 				}
 			},
+		*/
 
-			
+		getVehicles: async () => {
+			let localData = localStorage.getItem("vehicles");
+			if (localData){
+				setStore({vehicles: JSON.parse(localData)})
+				return
+			}
+			try {
+				const response = await fetch (`https://www.swapi.tech/api/vehicles/`)
+				if (!response.ok) {
+					throw new Error("La respuesta no fue existosa");
+				}
+				const data = await response.json()
+				localStorage.setItem("vehicles", JSON.stringify(data.results))
+				setStore({vehicles: data.results})
+				console.log(data)
+			} catch (error) {
+				console.error("La respuesta no fue existosa")
+			}
+		}, 
+
+
+		/*	Versión sin LocalStorage
 			getChracters: async () => {
 				try {
 					const response = await fetch (`https://www.swapi.tech/api/people/`)
@@ -111,6 +176,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error("La respuesta no fue existosa")
 				}
 			},
+		*/
+
+	
+		getChracters: async () => {
+			let localData = localStorage.getItem("chracters");
+			if (localData){
+				setStore({chracters: JSON.parse(localData)})
+				return
+			}
+			try {
+				const response = await fetch (`https://www.swapi.tech/api/people/`)
+				if (!response.ok) {
+					throw new Error("La respuesta no fue existosa");
+				}
+				const data = await response.json()
+				localStorage.setItem("chracters", JSON.stringify(data.results))
+				setStore({chracters: data.results})
+				console.log(data)
+			} catch (error) {
+				console.error("La respuesta no fue existosa")
+			}
+		}, 
 
 			getCharacterDetail: async (uid) => {
                 try {
