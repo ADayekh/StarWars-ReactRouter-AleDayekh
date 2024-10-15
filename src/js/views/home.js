@@ -6,7 +6,7 @@ export const Home = () => (
 
 	<div className="text-center mt-5">
 		<p>
-			<img className="Home_image" src={StarWars} />
+			<img className="img-fluid" src={StarWars} />
 		</p>
 	</div>
 );

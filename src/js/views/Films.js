@@ -17,7 +17,7 @@ const CardFilm = () => {
                 { 
                     store.films.map((film, index) => {
                         return (
-                        <div className="col-4 my-3" key ={index}>
+                        <div className="col-sm-12 col-md-6 col-lg-4 my-3" key ={index}>
                                     <Card style={{ width: '30rem' }}>
                                             <Card.Img variant="top" src={`https://starwars-visualguide.com/assets/img/films/${film.uid}.jpg`}  />
                                             <Card.Body>

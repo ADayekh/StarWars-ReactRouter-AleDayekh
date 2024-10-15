@@ -14,7 +14,7 @@ const CardVehicle = () => {
         <div className="row justify-content-center">
             { store.vehicles.map((singleVehicle, index) => { 
             return ( 
-                    <div className ="col-3 my-3" key ={index}>
+                    <div className ="col-sm-12 col-md-6 col-lg-3 my-3" key ={index}>
                         <Card style={{ width: '30rem' }}>
                                 <Card.Img variant="top" src={`https://starwars-visualguide.com/assets/img/vehicles/${singleVehicle.uid}.jpg`}  />
                                 <Card.Body>
